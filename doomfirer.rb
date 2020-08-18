@@ -64,11 +64,6 @@ module Doomfirer
         dst_index = [0, (pixel_index - x_offset_randomness - @width)].max
         @image[dst_index] = dst_palette_index
       end
-    rescue => e
-      puts "exception: #{e.message}"
-      #puts e.backtrace.join("\n")
-      #puts @image.inspect
-      exit
     end
   end
 
@@ -95,8 +90,6 @@ module Doomfirer
       end
       FFI::NCurses.wattr_set(@window, FFI::NCurses::A_NORMAL, 0, nil)
       FFI::NCurses.wrefresh(@window)
-    rescue
-      exit
     end
 
     def finish
